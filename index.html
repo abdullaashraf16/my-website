@@ -1,75 +1,162 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحتي الشخصية</title>
+    <title>Abdullah Ashraf - Graphic Designer</title>
     <style>
+        /* خلفية ألوان متناسقة */
         body {
-            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #2C2C54, #474787);
+            font-family: 'Cairo', sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            padding: 50px;
+            color: white;
+            overflow-x: hidden;
         }
-        .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+        /* الصورة الشخصية */
+        .profile-container {
+            position: relative;
+            display: inline-block;
         }
-        img {
-            width: 150px;
-            height: 150px;
+
+        .profile {
+            width: 280px; /* تصغير الصورة */
+            height: 280px;
             border-radius: 50%;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease-out forwards;
+            object-fit: cover;
+            animation: smoothSlide 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* نفس الأنميشن */
         }
-        .links a {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
+
+        /* أنميشن الاسم */
+        .name {
+            font-size: 38px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #FDC830, #F37335);
+            -webkit-background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: smoothSlide 1.2s ease-in-out;
+            font-family: 'Pricedown', sans-serif;
+        }
+
+        /* النص التعريفي */
+        p {
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.8;
+            font-family: 'Adoody', sans-serif;
+            font-size: 22px; /* تكبير النص العربي */
+            animation: smoothSlide 1.4s ease-in-out;
+        }
+
+        /* الأزرار */
+        .btn {
+            display: inline-block;
             width: 200px;
+            margin: 20px;
+            padding: 12px;
+            border-radius: 30px;
             text-decoration: none;
             color: white;
-            background: blue;
-            border-radius: 5px;
-            opacity: 0;
-            transform: translateY(50px);
-            animation: fadeInUp 1s ease-out forwards;
+            background: #1a73e8;
+            transition: transform 0.3s;
+            animation: smoothSlide 1.6s ease-in-out;
         }
-        /* تأخير لكل زرار عشان يطلعوا واحد ورا التاني */
-        .links a:nth-child(1) { animation-delay: 0.3s; }
-        .links a:nth-child(2) { animation-delay: 0.6s; }
-        .links a:nth-child(3) { animation-delay: 0.9s; }
-        .links a:nth-child(4) { animation-delay: 1.2s; }
 
-        /* تعريف الأنيميشن */
-        @keyframes fadeInUp {
+        .btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* أيقونات السوشيال ميديا */
+        .icons {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .icon {
+            margin: 0 10px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            animation: smoothSlide 1.8s ease-in-out;
+            object-fit: cover;
+        }
+
+        /* أيقونات أدوات التصميم (تصغيرها وضبط المواقع) */
+        .tool-icon {
+            position: absolute;
+            width: 30px; /* حجم أصغر */
+            height: 30px;
+            animation: smoothSlide 1.5s ease-in-out, floatAnimation 3s ease-in-out infinite; /* إضافة حركة */
+        }
+
+        /* تعديل مواقع الأيقونات بعد تصغير الصورة */
+        .tool1 { top: 20px; left: -30px; }
+        .tool2 { bottom: 20px; right: -30px; }
+        .tool3 { top: -20px; right: 30px; }
+        .tool4 { bottom: -20px; left: 30px; }
+
+        /* أنميشن سلس */
+        @keyframes smoothSlide {
             from {
-                opacity: 0;
                 transform: translateY(50px);
+                opacity: 0;
             }
             to {
-                opacity: 1;
                 transform: translateY(0);
+                opacity: 1;
             }
         }
+
+        /* أنميشن اهتزاز خفيف */
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+
     </style>
+
+    <!-- إضافة خطوط -->
+    <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Adoody&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <div class="container">
-        <img src="https://via.placeholder.com/150" alt="صورتي">
-        <h1>مرحبًا، أنا عبدالله</h1>
-        <p>مصمم جرافيك وصانع محتوى.</p>
-        
-        <div class="links">
-            <a href="https://instagram.com/your_username" target="_blank">instagram</a>
-            <a href="https://twitter.com/your_username" target="_blank">tiktok</a>
-            <a href="https://www.behance.net/your_username" target="_blank">Behance</a>
-            <a href="https://wa.me/your_number" target="_blank">whatsApp</a>
-        </div>
+
+    <!-- صورة البروفايل مع أيقونات التصميم -->
+    <div class="profile-container">
+        <img src="https://i.imgur.com/va7nD2n.jpeg" alt="صورتي" class="profile">
+
+        <!-- أيقونات التصميم -->
+        <img src="https://i.imgur.com/1E1k5Xv.png" class="tool-icon tool1" alt="Tool 1">
+        <img src="https://i.imgur.com/MJRfuv7.png" class="tool-icon tool2" alt="Tool 2">
+        <img src="https://i.imgur.com/VpYytsz.png" class="tool-icon tool3" alt="Tool 3">
+        <img src="https://i.imgur.com/4xWOeCU.png" class="tool-icon tool4" alt="Tool 4">
     </div>
+
+    <!-- الاسم بخط تايبوجرافي -->
+    <h1 class="name">Abdullah Ashraf</h1>
+
+    <!-- النص التعريفي -->
+    <p>مصمم جرافيك متخصص في تصميمات السوشيال ميديا والهويه البصريه للشركات، أسعى لتحويل أفكارك إلى أعمال بصرية مميزة. أقدم حلول مبتكرة تعبر عن هوية مشروعك بأسلوب احترافي وراقٍ.</p>
+
+    <!-- الأزرار -->
+    <a href="https://www.behance.net/abdalaashr0d7c1" class="btn">Portfolio</a>
+    <a href="https://wa.me/201100151198" class="btn">Work Together</a>
+
+    <!-- أيقونات السوشيال ميديا -->
+    <div class="icons">
+        <a href="https://www.tiktok.com/@el_osta.z?_t=ZS-8uhUh9pN5mx&_r=1">
+            <img src="https://i.imgur.com/2Qmt8ak.png" alt="TikTok" class="icon">
+        </a>
+        <a href="https://www.instagram.com/abdalaashraf69?igsh=cmE0bXF3Z282YXVn&utm_source=qr">
+            <img src="https://i.imgur.com/V9nD5HC.png" alt="Instagram" class="icon">
+        </a>
+    </div>
+
 </body>
+
 </html>
