@@ -4,65 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Abdullah Ashraf - Graphic Designer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-        /* خلفية ألوان متناسقة */
+        /* خلفية متناسقة */
         body {
             background: linear-gradient(135deg, #2C2C54, #474787);
             font-family: 'Cairo', sans-serif;
             text-align: center;
-            padding: 50px;
+            padding: 20px;
             color: white;
+            margin: 0;
+            box-sizing: border-box;
             overflow-x: hidden;
+        }
+
+        /* الحاوية الرئيسية */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh; /* يجعل المحتوى يملأ الشاشة */
         }
 
         /* الصورة الشخصية */
         .profile-container {
             position: relative;
             display: inline-block;
+            margin-bottom: 20px;
         }
 
         .profile {
-            width: 280px; /* تصغير الصورة */
-            height: 280px;
+            width: 300px; /* تكبير الصورة */
+            height: 300px;
             border-radius: 50%;
             object-fit: cover;
-            animation: smoothSlide 1s cubic-bezier(0.25, 1, 0.5, 1) forwards; /* نفس الأنميشن */
+            animation: fadeInUp 1s ease-in-out;
         }
 
-        /* أنميشن الاسم */
+        /* أيقونات أدوات التصميم */
+        .tool-icon {
+            position: absolute;
+            width: 40px; /* حجم أيقونات التصميم */
+            height: 40px;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+
+        /* تعديل أماكن الأيقونات */
+        .tool1 { top: 20px; left: -40px; }
+        .tool2 { bottom: 20px; right: -40px; }
+        .tool3 { top: -30px; right: 30px; }
+        .tool4 { bottom: -30px; left: 30px; }
+
+        /* الاسم */
         .name {
-            font-size: 38px;
+            font-size: 3rem; /* تكبير حجم الاسم */
             font-weight: bold;
             background: linear-gradient(90deg, #FDC830, #F37335);
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
-            animation: smoothSlide 1.2s ease-in-out;
+            animation: fadeInDown 1s ease-in-out;
             font-family: 'Pricedown', sans-serif;
         }
 
         /* النص التعريفي */
         p {
-            max-width: 600px;
+            max-width: 700px;
             margin: 20px auto;
             line-height: 1.8;
-            font-family: 'Adoody', sans-serif;
-            font-size: 22px; /* تكبير النص العربي */
-            animation: smoothSlide 1.4s ease-in-out;
+            font-size: 1.4rem; /* حجم أوضح */
+            animation: fadeInUp 1.2s ease-in-out;
         }
 
         /* الأزرار */
         .btn {
             display: inline-block;
-            width: 200px;
-            margin: 20px;
-            padding: 12px;
+            width: 220px;
+            margin: 15px;
+            padding: 15px;
             border-radius: 30px;
             text-decoration: none;
             color: white;
             background: #1a73e8;
-            transition: transform 0.3s;
-            animation: smoothSlide 1.6s ease-in-out;
+            transition: transform 0.3s ease;
+            animation: fadeInUp 1.4s ease-in-out;
+            font-size: 1.2rem; /* توحيد حجم الخط */
         }
 
         .btn:hover {
@@ -71,36 +99,27 @@
 
         /* أيقونات السوشيال ميديا */
         .icons {
-            margin-top: 40px;
+            margin-top: 30px;
             display: flex;
             justify-content: center;
+            gap: 20px;
         }
 
         .icon {
-            margin: 0 10px;
-            width: 50px;
-            height: 50px;
+            width: 60px; /* تكبير الأيقونات */
+            height: 60px;
             border-radius: 50%;
-            animation: smoothSlide 1.8s ease-in-out;
+            animation: fadeInUp 1.6s ease-in-out;
             object-fit: cover;
+            transition: transform 0.3s;
         }
 
-        /* أيقونات أدوات التصميم (تصغيرها وضبط المواقع) */
-        .tool-icon {
-            position: absolute;
-            width: 30px; /* حجم أصغر */
-            height: 30px;
-            animation: smoothSlide 1.5s ease-in-out, floatAnimation 3s ease-in-out infinite; /* إضافة حركة */
+        .icon:hover {
+            transform: translateY(-10px);
         }
 
-        /* تعديل مواقع الأيقونات بعد تصغير الصورة */
-        .tool1 { top: 20px; left: -30px; }
-        .tool2 { bottom: 20px; right: -30px; }
-        .tool3 { top: -20px; right: 30px; }
-        .tool4 { bottom: -20px; left: 30px; }
-
-        /* أنميشن سلس */
-        @keyframes smoothSlide {
+        /* أنميشن */
+        @keyframes fadeInUp {
             from {
                 transform: translateY(50px);
                 opacity: 0;
@@ -111,11 +130,52 @@
             }
         }
 
-        /* أنميشن اهتزاز خفيف */
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         @keyframes floatAnimation {
             0% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0); }
+        }
+
+        /* تحسين العرض على الأجهزة الصغيرة */
+        @media (max-width: 768px) {
+            .profile {
+                width: 220px;
+                height: 220px;
+            }
+
+            .tool-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .btn {
+                width: 180px;
+                font-size: 1rem;
+            }
+
+            .icon {
+                width: 50px;
+                height: 50px;
+            }
         }
 
     </style>
@@ -126,35 +186,37 @@
 
 <body>
 
-    <!-- صورة البروفايل مع أيقونات التصميم -->
-    <div class="profile-container">
-        <img src="https://i.imgur.com/va7nD2n.jpeg" alt="صورتي" class="profile">
+    <div class="container">
+        <!-- صورة البروفايل مع أيقونات التصميم -->
+        <div class="profile-container">
+            <img src="https://i.imgur.com/va7nD2n.jpeg" alt="Abdullah Profile" class="profile">
 
-        <!-- أيقونات التصميم -->
-        <img src="https://i.imgur.com/1E1k5Xv.png" class="tool-icon tool1" alt="Tool 1">
-        <img src="https://i.imgur.com/MJRfuv7.png" class="tool-icon tool2" alt="Tool 2">
-        <img src="https://i.imgur.com/VpYytsz.png" class="tool-icon tool3" alt="Tool 3">
-        <img src="https://i.imgur.com/4xWOeCU.png" class="tool-icon tool4" alt="Tool 4">
-    </div>
+            <!-- أيقونات التصميم -->
+            <img src="https://i.imgur.com/1E1k5Xv.png" class="tool-icon tool1" alt="Tool 1">
+            <img src="https://i.imgur.com/MJRfuv7.png" class="tool-icon tool2" alt="Tool 2">
+            <img src="https://i.imgur.com/VpYytsz.png" class="tool-icon tool3" alt="Tool 3">
+            <img src="https://i.imgur.com/4xWOeCU.png" class="tool-icon tool4" alt="Tool 4">
+        </div>
 
-    <!-- الاسم بخط تايبوجرافي -->
-    <h1 class="name">Abdullah Ashraf</h1>
+        <!-- الاسم -->
+        <h1 class="name">Abdullah Ashraf</h1>
 
-    <!-- النص التعريفي -->
-    <p>مصمم جرافيك متخصص في تصميمات السوشيال ميديا والهويه البصريه للشركات، أسعى لتحويل أفكارك إلى أعمال بصرية مميزة. أقدم حلول مبتكرة تعبر عن هوية مشروعك بأسلوب احترافي وراقٍ.</p>
+        <!-- النص التعريفي -->
+        <p>مصمم جرافيك متخصص في تصميمات السوشيال ميديا والهويه البصريه للشركات، أسعى لتحويل أفكارك إلى أعمال بصرية مميزة.</p>
 
-    <!-- الأزرار -->
-    <a href="https://www.behance.net/abdalaashr0d7c1" class="btn">Portfolio</a>
-    <a href="https://wa.me/201100151198" class="btn">Work Together</a>
+        <!-- الأزرار -->
+        <a href="https://www.behance.net/abdalaashr0d7c1" class="btn">Portfolio</a>
+        <a href="https://wa.me/201100151198" class="btn">Work Together</a>
 
-    <!-- أيقونات السوشيال ميديا -->
-    <div class="icons">
-        <a href="https://www.tiktok.com/@el_osta.z?_t=ZS-8uhUh9pN5mx&_r=1">
-            <img src="https://i.imgur.com/2Qmt8ak.png" alt="TikTok" class="icon">
-        </a>
-        <a href="https://www.instagram.com/abdalaashraf69?igsh=cmE0bXF3Z282YXVn&utm_source=qr">
-            <img src="https://i.imgur.com/V9nD5HC.png" alt="Instagram" class="icon">
-        </a>
+        <!-- أيقونات السوشيال ميديا -->
+        <div class="icons">
+            <a href="https://www.tiktok.com/@el_osta.z">
+                <img src="https://i.imgur.com/2Qmt8ak.png" alt="TikTok" class="icon">
+            </a>
+            <a href="https://www.instagram.com/abdalaashraf69">
+                <img src="https://i.imgur.com/V9nD5HC.png" alt="Instagram" class="icon">
+            </a>
+        </div>
     </div>
 
 </body>
