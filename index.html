@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Abdullah Ashraf - Graphic Designer</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Ashraf - Graphic Designer</title>
 
     <style>
         /* خلفية متناسقة */
         body {
             background: linear-gradient(135deg, #2C2C54, #474787);
-            font-family: 'Cairo', sans-serif;
+            font-family: 'Adoody', sans-serif;
             text-align: center;
             padding: 20px;
             color: white;
@@ -25,7 +25,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* يجعل المحتوى يملأ الشاشة */
+            min-height: 100vh; /* ملء الشاشة */
         }
 
         /* الصورة الشخصية */
@@ -36,8 +36,8 @@
         }
 
         .profile {
-            width: 300px; /* تكبير الصورة */
-            height: 300px;
+            width: 180px; /* تصغير الصورة أكثر */
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             animation: fadeInUp 1s ease-in-out;
@@ -46,27 +46,27 @@
         /* أيقونات أدوات التصميم */
         .tool-icon {
             position: absolute;
-            width: 40px; /* حجم أيقونات التصميم */
-            height: 40px;
+            width: 30px; /* حجم أصغر للأيقونات */
+            height: 30px;
             animation: floatAnimation 3s ease-in-out infinite;
         }
 
-        /* تعديل أماكن الأيقونات */
-        .tool1 { top: 20px; left: -40px; }
-        .tool2 { bottom: 20px; right: -40px; }
-        .tool3 { top: -30px; right: 30px; }
-        .tool4 { bottom: -30px; left: 30px; }
+        /* أماكن الأيقونات */
+        .tool1 { top: 10px; left: -30px; }
+        .tool2 { bottom: 10px; right: -30px; }
+        .tool3 { top: -20px; right: 20px; }
+        .tool4 { bottom: -20px; left: 20px; }
 
         /* الاسم */
         .name {
-            font-size: 3rem; /* تكبير حجم الاسم */
+            font-size: 3rem; /* تكبير الاسم */
             font-weight: bold;
             background: linear-gradient(90deg, #FDC830, #F37335);
             -webkit-background-clip: text;
             color: transparent;
             display: inline-block;
             animation: fadeInDown 1s ease-in-out;
-            font-family: 'Pricedown', sans-serif;
+            font-family: 'Olbrick', sans-serif; /* تطبيق الخط الجديد */
         }
 
         /* النص التعريفي */
@@ -74,8 +74,9 @@
             max-width: 700px;
             margin: 20px auto;
             line-height: 1.8;
-            font-size: 1.4rem; /* حجم أوضح */
+            font-size: 1.4rem;
             animation: fadeInUp 1.2s ease-in-out;
+            font-family: 'Adoody', sans-serif; /* تطبيق الخط العربي */
         }
 
         /* الأزرار */
@@ -89,8 +90,8 @@
             color: white;
             background: #1a73e8;
             transition: transform 0.3s ease;
-            animation: fadeInUp 1.4s ease-in-out;
-            font-size: 1.2rem; /* توحيد حجم الخط */
+            animation: fadeInUp 1.4s ease-in-out, floatAnimation 3s ease-in-out infinite; /* إضافة الحركة */
+            font-size: 1.2rem;
         }
 
         .btn:hover {
@@ -102,14 +103,14 @@
             margin-top: 30px;
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 10px; /* تقليل المسافات */
         }
 
         .icon {
-            width: 60px; /* تكبير الأيقونات */
-            height: 60px;
+            width: 50px; /* تصغير الأيقونات */
+            height: 50px;
             border-radius: 50%;
-            animation: fadeInUp 1.6s ease-in-out;
+            animation: fadeInUp 1.6s ease-in-out, floatAnimation 3s ease-in-out infinite; /* إضافة الحركة */
             object-fit: cover;
             transition: transform 0.3s;
         }
@@ -143,20 +144,20 @@
 
         @keyframes floatAnimation {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-5px); }
             100% { transform: translateY(0); }
         }
 
         /* تحسين العرض على الأجهزة الصغيرة */
         @media (max-width: 768px) {
             .profile {
-                width: 220px;
-                height: 220px;
+                width: 150px;
+                height: 150px;
             }
 
             .tool-icon {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
             }
 
             .name {
@@ -173,15 +174,16 @@
             }
 
             .icon {
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
             }
         }
-
     </style>
 
-    <!-- إضافة خطوط -->
-    <link href="https://fonts.googleapis.com/css2?family=Pricedown&family=Adoody&display=swap" rel="stylesheet">
+    <!-- إضافة خطوط مخصصة -->
+    <link href="https://fonts.googleapis.com/css2?family=Adoody&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/olbrick" rel="stylesheet">
+
 </head>
 
 <body>
